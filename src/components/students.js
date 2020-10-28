@@ -13,7 +13,7 @@ class Students extends Component {
 
 
     componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/users')
+        fetch('http://192.168.1.2:8080/students')
             .then(res => res.json())
             .then((data) => {
                 this.setState({ students: data })
@@ -33,7 +33,7 @@ class Students extends Component {
                                 <a href={`/subjects/${student.id}/list`}>{student.name}</a>
                               </li>
                             </h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{student.email}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">{student.roll_number}</h6>
                         </div>
                     </div>
                 ))}
