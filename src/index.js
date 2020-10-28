@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import Students from './components/students';
+import Subjects from './components/subjects';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './index.css';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+    <BrowserRouter>
+        <div className="row m-0">
+            <div className="col-sm-8 offset-sm-2 ">
+                <Switch>
+                    <Route path="/students/list" component={Students}></Route>
+                    <Route path="/subjects/:student_id/list" component={Subjects}></Route>
+                    <Route path="/" component={App}></Route>
+                </Switch>
+            </div>
+        </div>
+    </BrowserRouter>, document.getElementById('root'));
